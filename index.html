@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(198, 255, 221), rgb(251, 215, 134), rgb(247, 121, 125));
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .rounded-rectangle {
+            width: 1000px;
+            height: 500px;
+            background: linear-gradient(to right, rgb(127, 127, 213), rgb(134, 168, 231), rgb(145, 234, 228));
+            border-radius: 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .rounded-rectangle img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+        .rounded-rectangle p {
+            margin-top: 20px;
+            font-size: 30px; /* Increased font size */
+            color: #333;
+        }
+        .clock {
+            position: absolute;
+            left: px;
+            top: 180px;
+            font-size: 60px; /* Increased font size */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="rounded-rectangle">
+        <div id="clock" class="clock"></div>
+        <img src="tx.jpg" alt="Profile Picture">
+        <p>一个摄像机</p>
+    </div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        window.onload = updateClock;
+    </script>
+</body>
+</html>
